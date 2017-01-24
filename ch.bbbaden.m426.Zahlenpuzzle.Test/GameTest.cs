@@ -19,7 +19,6 @@ namespace ch.bbbaden.m426.Zahlenpuzzle.Test
       Assert.AreEqual(3, game.TileAt(x: 3, y: 3));
       game.Restart();
       Assert.AreEqual(3, game.TileAt(x: 2, y: 3));
-
     }
   }
 }
