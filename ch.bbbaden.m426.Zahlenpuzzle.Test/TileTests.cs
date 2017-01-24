@@ -31,11 +31,29 @@ namespace ch.bbbaden.m426.Zahlenpuzzle.Test
 
       // Act
       tiles = new Tiles(4, 4);
-      Action errorFunc = () => { var tile = tiles[new Location(4, 1)]; };
+      Action action = () => { var tile = tiles[new Location(4, 1)]; };
 
       // Assert
-      Assert.ThrowsException<ArgumentOutOfRangeException>(errorFunc);
+      Assert.ThrowsException<ArgumentOutOfRangeException>(action);
       Assert.IsNotNull(tiles[new Location(3, 1)]);
     }
+
+    [TestMethod]
+    public void TestMoveTiles()
+    {
+      // Arrange
+      Tiles tiles;
+
+      // Act
+      tiles = new Tiles(4, 4);
+      Action action = () => { tiles.MoveTile(new Location(3, 2), new Location(3, 3)); };
+      Action errorAction = () => { tiles.MoveTile(new Location(1, 1), new Location(3, 3)); };
+      Action errorAction2 = () => { tiles.MoveTile(new Location(3, 2), new Location(4, 2)); };
+
+      // Assert
+
+    }
+
+
   }
 }

@@ -1,7 +1,7 @@
 ﻿namespace ch.bbbaden.m426.Zahlenpuzzle
 {
 
-  public class EmptyTile
+  public class EmptyTile : ITile
   {
   }
 }
