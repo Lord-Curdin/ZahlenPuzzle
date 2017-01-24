@@ -50,9 +50,16 @@
   <ItemGroup>
     <Compile Include="GameTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TileTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ch.bbbaden.m426.Zahlenpuzzle\ch.bbbaden.m426.Zahlenpuzzle.csproj">
+      <Project>{26AA2F40-9523-472C-93A4-1E80D102580D}</Project>
+      <Name>ch.bbbaden.m426.Zahlenpuzzle</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
