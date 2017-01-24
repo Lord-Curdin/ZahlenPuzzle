@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmptyTile.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="GameFactory.cs" />
     <Compile Include="ITile.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="NumberTile.cs" />

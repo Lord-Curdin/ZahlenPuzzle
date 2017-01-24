@@ -1,20 +1,25 @@
-using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ch.bbbaden.m426.Zahlenpuzzle.Test
 {
-    [TestClass]
-    public class GameTest
+  [TestClass]
+  public class GameTest
+  {
+    [TestMethod]
+    public void TestRestart()
     {
-        [TestMethod]
-        public void TestRestart()
-        {
-            // Arrange
+      // Arrange
+      Game game;
+      
+      // Act
+      game = GameFactory.Get4On4Game();
+      game.TryMoveTile(new Location(2, 3), new Location(3, 3));
 
-            // Act
+      // Assert
+      Assert.AreEqual(3, game.TileAt(x: 3, y: 3));
+      game.Restart();
+      Assert.AreEqual(3, game.TileAt(x: 2, y: 3));
 
-            // Assert
-
-        }
     }
+  }
 }
