@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ch.bbbaden.m426.Zahlenpuzzl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ch.bbbaden.m426.Zahlenpuzzle.Test", "ch.bbbaden.m426.Zahlenpuzzle.Test\ch.bbbaden.m426.Zahlenpuzzle.Test.csproj", "{9506F406-6BB0-447F-91EA-7AAA27557ADB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ch.bbbaden.m426.Zahlenpuzzle.CLI", "ch.bbbaden.m426.Zahlenpuzzle.CLI\ch.bbbaden.m426.Zahlenpuzzle.CLI.csproj", "{2488443B-AB92-4515-A7FB-AB8B58E395C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{9506F406-6BB0-447F-91EA-7AAA27557ADB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9506F406-6BB0-447F-91EA-7AAA27557ADB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9506F406-6BB0-447F-91EA-7AAA27557ADB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2488443B-AB92-4515-A7FB-AB8B58E395C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2488443B-AB92-4515-A7FB-AB8B58E395C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2488443B-AB92-4515-A7FB-AB8B58E395C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2488443B-AB92-4515-A7FB-AB8B58E395C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
