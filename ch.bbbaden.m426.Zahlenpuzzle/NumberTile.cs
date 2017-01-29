@@ -2,6 +2,12 @@
 {
   public class NumberTile : ITile
   {
-    public int Number { get; set; }
+    public NumberTile(int number)
+    {
+      Number = number;
+    }
+
+
+    public int Number { get; }
   }
 }

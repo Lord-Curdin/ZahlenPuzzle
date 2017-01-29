@@ -30,7 +30,7 @@ namespace ch.bbbaden.m426.Zahlenpuzzle.Test
       Tiles tiles;
 
       // Act
-      tiles = new Tiles(4, 4);
+      tiles = TilesFactory.Get(GameTypes.Easy);
       Action action = () => { var tile = tiles[new Location(4, 1)]; };
 
       // Assert
@@ -45,13 +45,15 @@ namespace ch.bbbaden.m426.Zahlenpuzzle.Test
       Tiles tiles;
 
       // Act
-      tiles = new Tiles(4, 4);
-      Action action = () => { tiles.MoveTile(new Location(3, 2), new Location(3, 3)); };
+      tiles = TilesFactory.Get(GameTypes.Easy);
+      Action validAction = () => { tiles.MoveTile(new Location(3, 2), new Location(3, 3)); };
       Action errorAction = () => { tiles.MoveTile(new Location(1, 1), new Location(3, 3)); };
       Action errorAction2 = () => { tiles.MoveTile(new Location(3, 2), new Location(4, 2)); };
 
       // Assert
-
+      validAction();
+      Assert.ThrowsException<ArgumentException>(errorAction);
+      Assert.ThrowsException<ArgumentOutOfRangeException>(errorAction2);
     }
 
 

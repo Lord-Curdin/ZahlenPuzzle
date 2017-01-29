@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("ch.bbbaden.m426.Zahlenpuzzle.Test")]
 namespace ch.bbbaden.m426.Zahlenpuzzle
 {
-  public class Tiles : IEnumerable<ITile>
+  internal class Tiles : IEnumerable<ITile>
   {
-    private int xSize;
-    private int ySize;
+    // rows are the first dimension, columns the second.
+    private readonly List<List<ITile>> tiles;
 
-    public Tiles(int xSize, int ySize)
+    public Tiles(IEnumerable<IEnumerable<ITile>> tiles)
     {
-      this.xSize = xSize;
-      this.ySize = ySize;
+      this.tiles = tiles.Select(t => t.ToList()).ToList();
     }
 
     public void MoveTile(Location oldLocation, Location newLocation)
@@ -19,7 +21,13 @@ namespace ch.bbbaden.m426.Zahlenpuzzle
       throw new System.NotImplementedException();
     }
 
+    public bool HasLocation(Location location)
+    {
+      return tiles.Count <= location.Row && tiles.All(column => column.Count <= location.Column);
+    }
+
     public ITile this[Location location] => null;
+
     IEnumerator IEnumerable.GetEnumerator()
     {
       return GetEnumerator();
@@ -27,7 +35,7 @@ namespace ch.bbbaden.m426.Zahlenpuzzle
 
     public IEnumerator<ITile> GetEnumerator()
     {
-      throw new System.NotImplementedException();
+      return tiles.SelectMany(rows => rows).GetEnumerator();
     }
   }
 }

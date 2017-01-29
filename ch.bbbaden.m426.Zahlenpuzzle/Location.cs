@@ -2,13 +2,14 @@
 {
   public class Location
   {
-    public Location(int x, int y)
+    public Location(int row, int column)
     {
-      X = x;
-      Y = y;
+      Row = row;
+      Column = column;
     }
 
-    public int X { get; }
-    public int Y { get; }
+    public int Row { get; }
+
+    public int Column { get; }
   }
 }

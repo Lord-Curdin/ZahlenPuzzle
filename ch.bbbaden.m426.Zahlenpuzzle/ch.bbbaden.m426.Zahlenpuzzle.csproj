@@ -43,12 +43,15 @@
     <Compile Include="EmptyTile.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameFactory.cs" />
+    <Compile Include="GameTypes.cs" />
     <Compile Include="ITile.cs" />
+    <Compile Include="Linq\GroupByHelper.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="NumberTile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TileFactory.cs" />
     <Compile Include="Tiles.cs" />
+    <Compile Include="TilesFactory.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
