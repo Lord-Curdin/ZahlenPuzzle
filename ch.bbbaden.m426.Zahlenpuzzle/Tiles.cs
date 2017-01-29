@@ -16,7 +16,9 @@ namespace ch.bbbaden.m426.Zahlenpuzzle
 
     public void MoveTile(Location oldLocation, Location newLocation)
     {
-      throw new System.NotImplementedException();
+      var temp = this[newLocation];
+      this[newLocation] = this[oldLocation];
+      this[oldLocation] = temp;
     }
 
     public bool HasLocation(Location location)
@@ -24,7 +26,11 @@ namespace ch.bbbaden.m426.Zahlenpuzzle
       return tiles.Count <= location.Row && tiles.All(column => column.Count <= location.Column);
     }
 
-    public ITile this[Location location] => null;
+    public ITile this[Location location]
+    {
+      get { return tiles[location.Row][location.Column]; }
+      private set { tiles[location.Row][location.Column] = value; } 
+    }
 
     IEnumerator IEnumerable.GetEnumerator()
     {
