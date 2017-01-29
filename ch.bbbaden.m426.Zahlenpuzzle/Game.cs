@@ -5,7 +5,7 @@ namespace ch.bbbaden.m426.Zahlenpuzzle
 
   public class Game
   {
-    public void TryMoveTile(Location oldLocation, Location newLocation)
+    public bool TryMoveTile(Location oldLocation, Location newLocation)
     {
       throw new NotImplementedException();
     }
