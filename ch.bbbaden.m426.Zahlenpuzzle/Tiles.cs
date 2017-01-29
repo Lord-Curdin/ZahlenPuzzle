@@ -1,9 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("ch.bbbaden.m426.Zahlenpuzzle.Test")]
 namespace ch.bbbaden.m426.Zahlenpuzzle
 {
   internal class Tiles : IEnumerable<ITile>
