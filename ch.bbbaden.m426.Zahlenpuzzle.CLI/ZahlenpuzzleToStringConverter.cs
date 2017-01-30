@@ -5,9 +5,12 @@ namespace ch.bbbaden.m426.Zahlenpuzzle.CLI
 {
   public static class ZahlenpuzzleToStringConverter
   {
+
     public static IEnumerable<string> ToCliRepresentation(this Game game)
     {
-      yield return new string('-', game.Tiles.Count());
+      string line = new string('-', 5 * game.Tiles.RowCount + 1);
+
+      yield return line;
 
       for (int i = 0; i < game.Tiles.Count() / game.Tiles.RowCount; i++)
       {
@@ -20,7 +23,7 @@ namespace ch.bbbaden.m426.Zahlenpuzzle.CLI
           var numberTile = tile as NumberTile;
           if (numberTile != null)
           {
-            row += numberTile.Number.ToString("##") +" | ";
+            row += ((numberTile.Number > 9) ? "" : " ") + numberTile.Number.ToString("#")  + " | ";
           }
           else
           {
@@ -29,7 +32,7 @@ namespace ch.bbbaden.m426.Zahlenpuzzle.CLI
         }
 
         yield return row;
-        yield return new string('-', game.Tiles.Count());
+        yield return line;
       }
     }
   }

@@ -50,9 +50,8 @@ namespace ch.bbbaden.m426.Zahlenpuzzle.CLI
 
       }
 
-      WriteLine(new string('-', 10));
-      WriteLine("Game finished.");
-      WriteLine(new string('-', 10));
+      WriteLine("Game finished. Congratulations!");
+      game.ToCliRepresentation().ToList().ForEach(WriteLine);
       WriteLine("Want to start again (y/n)?");
       if ("y".Equals(ReadLine(), StringComparison.CurrentCultureIgnoreCase))
       {
