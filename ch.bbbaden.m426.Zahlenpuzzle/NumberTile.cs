@@ -7,7 +7,6 @@
       Number = number;
     }
 
-
     public int Number { get; }
   }
 }

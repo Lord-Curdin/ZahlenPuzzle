@@ -16,7 +16,7 @@ namespace ch.bbbaden.m426.Zahlenpuzzle
 
     public void MoveTile(Location oldLocation, Location newLocation)
     {
-      var temp = this[newLocation];
+      ITile temp = this[newLocation];
       this[newLocation] = this[oldLocation];
       this[oldLocation] = temp;
     }
@@ -41,5 +41,8 @@ namespace ch.bbbaden.m426.Zahlenpuzzle
     {
       return tiles.SelectMany(rows => rows).GetEnumerator();
     }
+
+    internal int RowCount => tiles.Count;
+    public int ColumnCount => tiles.First().Count;
   }
 }
