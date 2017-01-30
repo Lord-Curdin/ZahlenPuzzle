@@ -29,6 +29,11 @@ namespace ch.bbbaden.m426.Zahlenpuzzle.CLI
           WriteLine("Enter the tile to move: ");
           string userMoveEntry = ReadLine();
 
+          if (userMoveEntry == "RNG")
+          {
+            WriteLine("I accept you as my only RNGeezuz master.");
+          }
+
           int move;
           if (int.TryParse(userMoveEntry, out move) && game.TryMoveTile(game.LocationOfNumber(move), game.LocationOfEmpty()))
           {
