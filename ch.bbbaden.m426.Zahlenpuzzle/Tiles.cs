@@ -4,17 +4,17 @@ using System.Linq;
 
 namespace ch.bbbaden.m426.Zahlenpuzzle
 {
-  internal class Tiles : IEnumerable<ITile>
+  public class Tiles : IEnumerable<ITile>
   {
     // rows are the first dimension, columns the second.
     private readonly List<List<ITile>> tiles;
 
-    public Tiles(IEnumerable<IEnumerable<ITile>> tiles)
+    internal Tiles(IEnumerable<IEnumerable<ITile>> tiles)
     {
       this.tiles = tiles.Select(t => t.ToList()).ToList();
     }
 
-    public void MoveTile(Location oldLocation, Location newLocation)
+    internal void MoveTile(Location oldLocation, Location newLocation)
     {
       ITile temp = this[newLocation];
       this[newLocation] = this[oldLocation];
@@ -23,7 +23,7 @@ namespace ch.bbbaden.m426.Zahlenpuzzle
 
     public bool HasLocation(Location location)
     {
-      return tiles.Count <= location.Row && tiles.All(column => column.Count <= location.Column);
+      return location.Row <= RowCount && location.Column <= ColumnCount;
     }
 
     public ITile this[Location location]
@@ -42,7 +42,7 @@ namespace ch.bbbaden.m426.Zahlenpuzzle
       return tiles.SelectMany(rows => rows).GetEnumerator();
     }
 
-    internal int RowCount => tiles.Count;
+    public int RowCount => tiles.Count;
     public int ColumnCount => tiles.First().Count;
   }
 }

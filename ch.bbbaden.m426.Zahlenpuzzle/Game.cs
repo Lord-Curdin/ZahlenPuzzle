@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ch.bbbaden.m426.Zahlenpuzzle
@@ -18,7 +19,7 @@ namespace ch.bbbaden.m426.Zahlenpuzzle
     {
       int xDistance = Math.Abs(oldLocation.Row - newLocation.Row);
       int yDistance = Math.Abs(oldLocation.Column - newLocation.Column);
-      if (!(xDistance == 1 || xDistance == 0) || !(yDistance == 1 || yDistance == 0) || !tiles.HasLocation(newLocation))
+      if (!(xDistance == 1 || xDistance == 0) || !(yDistance == 1 || yDistance == 0) || (xDistance == 1 && yDistance == 1) || !tiles.HasLocation(newLocation))
       {
         return false;
       }
@@ -55,6 +56,8 @@ namespace ch.bbbaden.m426.Zahlenpuzzle
       return new Location(row, column);
     }
 
+    public Tiles Tiles => tiles;
+
     public void Restart(GameTypes gameType)
     {
       tiles = TilesFactory.Get(gameType);
@@ -65,9 +68,9 @@ namespace ch.bbbaden.m426.Zahlenpuzzle
       GameFinishedEvent?.Invoke(this, EventArgs.Empty);
     }
 
-    protected bool IsFinished() => tiles.Take(tiles.Count() - 1)
-                                     .Select(tile => ((NumberTile) tile).Number)
-                                     .SequenceEqual(Enumerable.Range(0, tiles.Count())) 
+    protected bool IsFinished() => tiles.Last() is EmptyTile && tiles.Take(tiles.Count() - 1)
+                                     .Select(tile => ((NumberTile)tile).Number)
+                                     .SequenceEqual(Enumerable.Range(1, tiles.Count() - 1))
                                    && tiles.Last() is EmptyTile;
   }
 }

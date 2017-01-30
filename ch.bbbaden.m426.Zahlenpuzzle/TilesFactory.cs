@@ -13,15 +13,15 @@ namespace ch.bbbaden.m426.Zahlenpuzzle
       {
         case GameTypes.Easy:
           var items = new List<ITile>();
-          for (int i = 0; i < 15; i++)
+          for (int i = 1; i <= 15; i++)
           {
             items.Add(new NumberTile(i));
           }
 
           items.Add(new EmptyTile());
-          ITile temp = items[16];
-          items[16] = items[15];
-          items[15] = temp;
+          ITile temp = items[15];
+          items[15] = items[14];
+          items[14] = temp;
 
           var groupedTiles = items.GroupBy(4);
           return new Tiles(groupedTiles.Select(tiles => tiles.ToList().AsEnumerable()).ToList().AsEnumerable());

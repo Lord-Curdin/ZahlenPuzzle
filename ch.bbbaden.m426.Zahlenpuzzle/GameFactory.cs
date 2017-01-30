@@ -2,12 +2,11 @@
 
 namespace ch.bbbaden.m426.Zahlenpuzzle
 {
-
   public class GameFactory
   {
-    public static Game Get4On4Game(GameTypes gameType = GameTypes.Hard)
+    public static Game Get4On4Game(GameTypes gameType = GameTypes.Easy)
     {
-      throw new NotImplementedException();
+      return new Game(gameType);
     }
   }
 }
