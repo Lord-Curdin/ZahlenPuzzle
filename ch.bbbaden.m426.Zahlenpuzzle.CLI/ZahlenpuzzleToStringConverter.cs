@@ -5,7 +5,6 @@ namespace ch.bbbaden.m426.Zahlenpuzzle.CLI
 {
   public static class ZahlenpuzzleToStringConverter
   {
-
     public static IEnumerable<string> ToCliRepresentation(this Game game)
     {
       string line = new string('-', 5 * game.Tiles.RowCount + 1);

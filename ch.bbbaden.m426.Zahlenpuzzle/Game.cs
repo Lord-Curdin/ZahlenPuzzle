@@ -18,7 +18,10 @@ namespace ch.bbbaden.m426.Zahlenpuzzle
     {
       int xDistance = Math.Abs(oldLocation.Row - newLocation.Row);
       int yDistance = Math.Abs(oldLocation.Column - newLocation.Column);
-      if (!(xDistance == 1 || xDistance == 0) || !(yDistance == 1 || yDistance == 0) || (xDistance == 1 && yDistance == 1) || !tiles.HasLocation(newLocation))
+      if (!(xDistance == 1 || xDistance == 0) 
+        || !(yDistance == 1 || yDistance == 0) 
+        || (xDistance == 1 && yDistance == 1) 
+        || !tiles.HasLocation(newLocation))
       {
         return false;
       }

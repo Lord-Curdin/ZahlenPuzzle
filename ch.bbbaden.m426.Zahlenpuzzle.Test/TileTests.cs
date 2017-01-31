@@ -47,12 +47,13 @@ namespace ch.bbbaden.m426.Zahlenpuzzle.Test
       // Act
       tiles = TilesFactory.Get(GameTypes.Easy);
       Action validAction = () => { tiles.MoveTile(new Location(3, 2), new Location(3, 3)); };
-      Action errorAction = () => { tiles.MoveTile(new Location(1, 1), new Location(3, 3)); };
+      // this action is not checked by the game, but is possible in the context of tiles.
+      Action uncheckedInvalidGameAction = () => { tiles.MoveTile(new Location(1, 1), new Location(3, 3)); };
       Action errorAction2 = () => { tiles.MoveTile(new Location(3, 2), new Location(4, 2)); };
 
       // Assert
       validAction();
-      Assert.ThrowsException<ArgumentException>(errorAction);
+      uncheckedInvalidGameAction();
       Assert.ThrowsException<ArgumentOutOfRangeException>(errorAction2);
     }
 

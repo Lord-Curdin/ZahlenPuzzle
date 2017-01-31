@@ -1,10 +1,9 @@
 ﻿using System.Windows;
+using PropertyChanged;
 
-namespace ch.bbbaden.m426.Zahlenpuzzle.GUI
+namespace ch.bbbaden.m426.Zahlenpuzzle.GUI.Views
 {
-  /// <summary>
-  /// Interaction logic for MainWindow.xaml
-  /// </summary>
+  [DoNotNotify]
   public partial class MainWindow : Window
   {
     public MainWindow()
