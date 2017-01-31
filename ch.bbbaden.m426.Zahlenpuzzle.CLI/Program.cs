@@ -32,6 +32,7 @@ namespace ch.bbbaden.m426.Zahlenpuzzle.CLI
           if (userMoveEntry == "RNG")
           {
             WriteLine("I accept you as my only RNGeezuz master.");
+            Read();
           }
 
           int move;
