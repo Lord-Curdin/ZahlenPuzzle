@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ch.bbbaden.m426.Zahlenpuzzle
+﻿namespace ch.bbbaden.m426.Zahlenpuzzle
 {
 
   public class TileFactory
