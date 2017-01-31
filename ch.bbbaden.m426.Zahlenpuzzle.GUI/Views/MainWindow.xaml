@@ -4,9 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ch.bbbaden.m426.Zahlenpuzzle.GUI"
+        xmlns:viewModels="clr-namespace:ch.bbbaden.m426.Zahlenpuzzle.GUI.ViewModels"
+        xmlns:converters="clr-namespace:ch.bbbaden.m426.Zahlenpuzzle.GUI.Wpf.Converters"
         mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <converters:TileToStringConverter x:Key="TileConverter" />
+    </Window.Resources>
     <Grid>
-        
+        <ListView ItemsSource="{Binding Board}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ListView ItemsSource="{Binding Rows}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding, Converter={StaticResource TileConverter}}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>

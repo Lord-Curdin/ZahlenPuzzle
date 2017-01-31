@@ -56,7 +56,5 @@ namespace ch.bbbaden.m426.Zahlenpuzzle.Test
       uncheckedInvalidGameAction();
       Assert.ThrowsException<ArgumentOutOfRangeException>(errorAction2);
     }
-
-
   }
 }
